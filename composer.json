@@ -1,0 +1,29 @@
+{
+    "name": "cml/code-modification-layer",
+    "description": "Provide a layer to modify original files from your project and then execute the file modified instead.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vitor Rocha",
+            "email": "vitor.vrs@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "~5.3"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "^4.5"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    },
+
+    "scripts": {
+        "test": "phpunit"
+    }
+
+}
