@@ -2,6 +2,9 @@
 
 namespace CML;
 
+use \Profile\ProfileInterface;
+use \Profile\GlobalProfile;
+
 class Artifact
 {
   /**
@@ -16,7 +19,21 @@ class Artifact
    */
   private $id;
 
-  public function __construct($id = null)
+  /**
+   * An global(default) profile for operations
+   * @var \CML\ProfileInterface
+   */
+  private $globalProfile;
+
+  /**
+   * An profile for extra operations
+   * @var \CML\ProfileInterface
+   */
+  private $profile;
+
+  public function __construct($id = null, ProfileInterface $profile = null)
   {
+    $this->globalProfile = new GlobalProfile();
+    $this->profile = $profile;
   }
 }

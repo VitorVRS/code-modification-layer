@@ -4,6 +4,8 @@ namespace CML\Collection;
 
 interface CollectionInterface
 {
+  protected $elements;
+
   /**
    * Returns the element by key
    * @param  string $key Unique key identifier
