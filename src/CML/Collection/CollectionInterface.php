@@ -4,6 +4,10 @@ namespace CML\Collection;
 
 interface CollectionInterface
 {
+  /**
+   * The elements
+   * @var array
+   */
   protected $elements;
 
   /**
@@ -32,4 +36,17 @@ interface CollectionInterface
    * @param  CollectionInterface $collection Collection instance
    */
   public function merge(CollectionInterface $collection);
+
+  /**
+   * Return all collection keys
+   * @return array
+   */
+  public function keys();
+
+  /**
+   * Check if the key exists
+   * @param  string $key Unique key identifier
+   * @return boolean      Exists or not
+   */
+  public function exists($key);
 }
