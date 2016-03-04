@@ -4,14 +4,14 @@ namespace CML;
 
 class Operation
 {
-  /**
-   * Operation identifier
+    /**
+   * Operation identifier.
+   *
    * @var string
    */
   private $id;
 
-  public function __construct($id = null)
-  {
-  }
-
+    public function __construct($id = null)
+    {
+    }
 }
