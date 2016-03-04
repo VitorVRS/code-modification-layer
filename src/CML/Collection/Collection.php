@@ -14,7 +14,7 @@ class Collection implements CollectionInterface
     public function get($key)
     {
         if (!$this->exists($key)) {
-            throw new InexistentException();
+            throw new KeyNotFoundException();
         }
 
         return $this->elements[$key];

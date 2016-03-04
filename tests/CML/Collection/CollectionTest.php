@@ -25,6 +25,15 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \CML\Collection\KeyNotFoundException
+     */
+    public function testExpectNotFoundException()
+    {
+      $collection = new Collection();
+      $collection->get('inexistent key');
+    }
+
+    /**
      * @dataProvider defaultData
      */
     public function testSet($data, $key, $value)
@@ -44,18 +53,44 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($collection->exists($key));
     }
 
-    // @todo
-    public function testMerge()
+    /**
+     * @dataProvider defaultData
+     */
+    public function testMerge($data, $key, $value)
     {
+        $newValue = 'test';
+        $collection = new Collection($data);
+        $collection->merge(new Collection(array($key => $newValue)));
+
+        $this->assertEquals($newValue, $collection->get($key));
     }
 
-    // @todo
-    public function testKeys()
+    public function testMergeAppendValue()
     {
+        $collection1 = new Collection(array(0 => 'test1'));
+        $collection2 = new Collection(array(1 => 'test2'));
+
+        $collection1->merge($collection2);
+        $this->assertEquals('test1', $collection1->get(0));
+        $this->assertEquals('test2', $collection1->get(1));
     }
 
-    // @todo
-    public function testExists()
+    /**
+     * @dataProvider defaultData
+     */
+    public function testKeys($data, $key, $value)
     {
+      $collection = new Collection($data);
+      $this->assertContains($key, $collection->keys());
+    }
+
+    /**
+     * @dataProvider defaultData
+     */
+    public function testExists($data, $key, $value)
+    {
+      $collection = new Collection($data, $key, $value);
+      $this->assertTrue($collection->exists($key));
+      $this->assertFalse($collection->exists('unexistent key'));
     }
 }
