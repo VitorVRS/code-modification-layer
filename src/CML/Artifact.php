@@ -10,7 +10,7 @@ class Artifact
     /**
      * Collection of Operations.
      *
-     * @var OperationCollection
+     * @var \PhpCollection\Sequence
      */
     private $operations;
 

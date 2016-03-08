@@ -2,6 +2,8 @@
 
 namespace CML;
 
+use \CML\Profile\ProfileInterface;
+
 class Operation
 {
     /**
@@ -11,7 +13,14 @@ class Operation
      */
     private $id;
 
-    public function __construct($id = null)
+    /**
+     * Profile linked to
+     * @var \CML\Profile\ProfileInterface
+     */
+    private $profile;
+
+    public function __construct($id = null, ProfileInterface $profile = null)
     {
+        $this->profile = $profile;
     }
 }
