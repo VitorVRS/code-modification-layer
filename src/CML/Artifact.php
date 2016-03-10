@@ -2,8 +2,9 @@
 
 namespace CML;
 
-use Profile\ProfileInterface;
-use Profile\GlobalProfile;
+use \CML\Profile\ProfileInterface;
+use \CML\Profile\GlobalProfile;
+use \PhpCollection\Sequence;
 
 class Artifact
 {
@@ -60,6 +61,25 @@ class Artifact
         $rawData = $storage->getData();
 
         $this->loaded = true;
+    }
+
+    public function addOperation(\CML\Operation $operation)
+    {
+        if ($this->operations === null) {
+            $this->operations = new Sequence();
+        }
+
+        $this->operations->add($operation);
+    }
+
+    public function setOperations(\PhpCollection\Sequence $operations)
+    {
+        $this->operations = $operationa;
+    }
+
+    public function getOperations()
+    {
+        return $this->operations;
     }
 
 }

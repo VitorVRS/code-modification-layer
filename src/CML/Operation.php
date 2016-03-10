@@ -2,7 +2,7 @@
 
 namespace CML;
 
-use \CML\Profile\ProfileInterface;
+use CML\Profile\ProfileInterface;
 
 class Operation
 {
@@ -14,7 +14,8 @@ class Operation
     private $id;
 
     /**
-     * Profile linked to
+     * Profile linked to.
+     *
      * @var \CML\Profile\ProfileInterface
      */
     private $profile;
